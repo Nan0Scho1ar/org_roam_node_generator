@@ -26,7 +26,6 @@ def get_depth(line):
 
 filetags = "BookNote"
 
-
 depth = 0
 ids = ['','','','','','','','']
 titles = ['','','','','','','','']
@@ -46,10 +45,10 @@ with open ('input.org') as f:
         line = line[depth+1:-1]
         titles[depth] = line
         ids[depth] = str(uuid.uuid4())
-        fname = re.sub(' ', '_', re.sub('[(),:]', '', titles[depth]))
+        fname = re.sub(' ', '_', re.sub('[(),:/]', '', titles[depth]))
         filename = (dt + '-' + prefix + '_' + fname  + '.org').lower()
         filenames[depth] = filename
-        parent_link = '[[' + ids[depth-1] + '][' + titles[depth-1] + ']]'
+        parent_link = '[[id:' + ids[depth-1] + '][' + titles[depth-1] + ']]'
         newfile = [':PROPERTIES:',
                    ':ID:        ' + ids[depth],
                    ':END:',
@@ -65,20 +64,7 @@ with open ('input.org') as f:
 
         if depth > 1:
             with open(filenames[depth-1], "a") as parent:
-                parent.write('\n' + str(elem_count[depth]) + '. [[' + ids[depth] + '][' + titles[depth] + ']]')
+                parent.write('\n' + str(elem_count[depth]+1) + '. [[id:' + ids[depth] + '][' + titles[depth] + ']]')
 
 #+end_src
-
-
-:PROPERTIES:
-:ID:       3642bb15-e25e-4c1e-93bc-447d3fd1c210
-:END:
-#+title: LDD3 Quick Reference (Chapter 2)
-#+filetags: BookNote
-Book: [[id:7906f05c-f041-4d73-8bdc-feaa50f0c726][LDD3 Chapter 2: Building and Running Modules]]
-
-* Notes
-* Body
-
-
 
