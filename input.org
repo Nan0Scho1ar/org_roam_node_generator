@@ -1,0 +1,22 @@
+#+TITLE: LDD3
+* Linux Device Drivers, Third Edition
+** Chapter 1: An Introduction to Device Drivers
+*** The Role of the Device Driver
+*** Splitting the Kernel
+*** Classes of Devices and Modules
+*** Security Issues
+*** Version Numbering
+*** License Terms
+*** Joining the Kernel Development Community
+*** Overview of the Book
+** Chapter 2: Building and Running Modules
+*** Setting Up Your Test System
+*** The Hello World Module
+*** Kernel Modules Versus Applications
+*** Compiling and Loading
+*** The Kernel Symbol Table
+*** Preliminaries
+*** Initialization and Shutdown
+*** Module Parameters
+*** Doing It in User Space
+*** Quick Reference (Chapter 2)

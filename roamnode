@@ -1,0 +1,64 @@
+#!/usr/bin/python3
+import uuid
+import io
+import re
+import datetime
+
+def get_depth(line):
+    if line[:2] == '* ':
+        return 1
+    elif line[:3] == '** ':
+        return 2
+    elif line[:4] == '*** ':
+        return 3
+    elif line[:5] == '**** ':
+        return 4
+    elif line[:6] == '***** ':
+        return 5
+    elif line[:7] == '****** ':
+        return 6
+    elif line[:8] == '****** ':
+        return 7
+
+filetags = "BookNote"
+
+
+depth = 0
+ids = ['','','','','','','','']
+titles = ['','','','','','','','']
+filenames = ['','','','','','','','']
+elem_count = [0,0,0,0,0,0,0,0]
+dt = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+with open ('input.org') as f:
+    prefix = f.readline()[9:-1]
+    for line in f.readlines():
+        # Remove trailing newline and set current heading depth
+        new_depth = get_depth(line)
+        if new_depth >= depth:
+            elem_count[depth] += 1
+        else:
+            elem_count[depth] = 0
+        depth = new_depth
+        line = line[depth+1:-1]
+        titles[depth] = line
+        ids[depth] = str(uuid.uuid4())
+        fname = re.sub(' ', '_', re.sub('[(),:]', '', titles[depth]))
+        filename = (dt + '-' + prefix + '_' + fname  + '.org').lower()
+        filenames[depth] = filename
+        parent_link = '[[' + ids[depth-1] + '][' + titles[depth-1] + ']]'
+        newfile = [':PROPERTIES:',
+                   ':ID:        ' + ids[depth],
+                   ':END:',
+                   '#+TITLE: ' + prefix + ' ' + titles[depth],
+                   '#+FILETAGS: ' + filetags,
+                   'Refs: ' + parent_link,
+                   '',
+                   '* Notes',
+                   '* Body']
+
+        with open(filename, "w") as out:
+            out.write('\n'.join(newfile))
+
+        if depth > 1:
+            with open(filenames[depth-1], "a") as parent:
+                parent.write('\n' + str(elem_count[depth]) + '. [[' + ids[depth] + '][' + titles[depth] + ']]')
