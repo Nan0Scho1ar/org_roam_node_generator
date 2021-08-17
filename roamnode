@@ -3,6 +3,7 @@ import uuid
 import io
 import re
 import datetime
+import os.path
 
 def get_depth(line):
     if line[:2] == '* ':
@@ -27,6 +28,7 @@ ids = ['','','','','','','','']
 titles = ['','','','','','','','']
 filenames = ['','','','','','','','']
 elem_count = [0,0,0,0,0,0,0,0]
+file_count = 0
 dt = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
 with open ('input.org') as f:
     prefix = f.readline()[9:-1]
@@ -55,9 +57,15 @@ with open ('input.org') as f:
                    '* Notes',
                    '* Body']
 
-        with open(filename, "w") as out:
-            out.write('\n'.join(newfile))
-
-        if depth > 1:
-            with open(filenames[depth-1], "a") as parent:
-                parent.write('\n' + str(elem_count[depth]+1) + '. [[id:' + ids[depth] + '][' + titles[depth] + ']]')
+        if os.path.isfile(filename):
+            print("file already exists, aborting")
+        else:
+            #Write new file
+            with open(filename, "w") as out:
+                out.write('\n'.join(newfile))
+                file_count += 1
+            #Update parent node Table of Contents
+            if depth > 1:
+                with open(filenames[depth-1], "a") as parent:
+                    parent.write('\n' + str(elem_count[depth]+1) + '. [[id:' + ids[depth] + '][' + titles[depth] + ']]')
+print("Created", file_count, "files")

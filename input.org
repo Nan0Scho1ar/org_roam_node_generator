@@ -19,7 +19,7 @@
 *** Initialization and Shutdown
 *** Module Parameters
 *** Doing It in User Space
-*** Quick Reference
+*** Quick Reference (Chapter 2)
 ** Chapter 3: Char Drivers
 *** The Design of scull
 *** Major and Minor Numbers
@@ -29,7 +29,7 @@
 *** scull’s Memory Usage
 *** read and write
 *** Playing with the New Devices
-*** Quick Reference
+*** Quick Reference (Chapter 3)
 ** Chapter 4: Debugging Techniques
 *** Debugging Support in the Kernel
 *** Debugging by Printing
@@ -45,7 +45,7 @@
 *** Spinlocks
 *** Locking Traps
 *** Alternatives to Locking
-*** Quick Reference
+*** Quick Reference (Chapter 5)
 ** Chapter 6: Advanced Char Driver Operations
 *** ioctl
 *** Blocking I/O
@@ -53,7 +53,7 @@
 *** Asynchronous Notification
 *** Seeking a Device
 *** Access Control on a Device File
-*** Quick Reference
+*** Quick Reference (Chapter 6)
 ** Chapter 7: Time, Delays, and Deferred Work
 *** Measuring Time Lapses
 *** Knowing the Current Time
@@ -61,7 +61,7 @@
 *** Kernel Timers
 *** Tasklets
 *** Workqueues
-*** Quick Reference
+*** Quick Reference (Chapter 7)
 ** Chapter 8: Allocating Memory
 *** The Real Story of kmalloc
 *** Lookaside Caches
@@ -69,13 +69,13 @@
 *** vmalloc and Friends
 *** Per-CPU Variables
 *** Obtaining Large Buffers
-*** Quick Reference
+*** Quick Reference (Chapter 8)
 ** Chapter 9: Communicating with Hardware
 *** I/O Ports and I/O Memory
 *** Using I/O Ports
 *** An I/O Port Example
 *** Using I/O Memory
-*** Quick Reference
+*** Quick Reference (Chapter 9)
 ** Chapter 10: Interrupt Handling
 *** Preparing the Parallel Port
 *** Installing an Interrupt Handler
@@ -83,14 +83,14 @@
 *** Top and Bottom Halves
 *** Interrupt Sharing
 *** Interrupt-Driven I/O
-*** Quick Reference
+*** Quick Reference (Chapter 10)
 ** Chapter 11: Data Types in the Kernel
 *** Use of Standard C Types
 *** Assigning an Explicit Size to Data Items
 *** Interface-Specific Types
 *** Other Portability Issues
 *** Linked Lists
-*** Quick Reference
+*** Quick Reference (Chapter 11)
 ** Chapter 12: PCI Drivers
 *** The PCI Interface
 *** A Look Back: ISA
@@ -99,14 +99,14 @@
 *** SBus
 *** NuBus
 *** External Buses
-*** Quick Reference
+*** Quick Reference (Chapter 12)
 ** Chapter 13: USB Drivers
 *** USB Device Basics
 *** USB and Sysfs
 *** USB Urbs
 *** Writing a USB Driver
 *** USB Transfers Without Urbs
-*** Quick Reference
+*** Quick Reference (Chapter 13)
 ** Chapter 14: The Linux Device Model
 *** Kobjects, Ksets, and Subsystems
 *** Low-Level Sysfs Operations
@@ -116,19 +116,19 @@
 *** Putting It All Together
 *** Hotplug
 *** Dealing with Firmware
-*** Quick Reference
+*** Quick Reference (Chapter 14)
 ** Chapter 15: Memory Mapping and DMA
 *** Memory Management in Linux
 *** The mmap Device Operation
 *** Performing Direct I/O
 *** Direct Memory Access
-*** Quick Reference
+*** Quick Reference (Chapter 15)
 ** Chapter 16: Block Drivers
 *** Registration
 *** The Block Device Operations
 *** Request Processing
 *** Some Other Details
-*** Quick Reference
+*** Quick Reference (Chapter 16)
 ** Chapter 17: Network Drivers
 *** How snull Is Designed
 *** Connecting to the Kernel
@@ -145,7 +145,7 @@
 *** Statistical Information
 *** Multicast
 *** A Few Other Details
-*** Quick Reference
+*** Quick Reference (Chapter 17)
 ** Chapter 18: TTY Drivers
 *** A Small TTY Driver
 *** tty_driver Function Pointers
@@ -155,4 +155,4 @@
 *** The tty_driver Structure in Detail
 *** The tty_operations Structure in Detail
 *** The tty_struct Structure in Detail
-*** Quick Reference
+*** Quick Reference (Chapter 18)
